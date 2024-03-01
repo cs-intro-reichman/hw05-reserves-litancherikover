@@ -11,10 +11,10 @@ public class GameOfLife {
 		String fileName = args[0];
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
-		//// test1(fileName);
-		//// test2(fileName);
-		//// test3(fileName, 3);
-		//// play(fileName);
+		test1(fileName);
+		test2(fileName);
+		test3(fileName, 3);
+		play(fileName);
 	}
 	
 	// Reads the data file and prints the initial board.
@@ -29,8 +29,8 @@ public class GameOfLife {
 	{
 		int[][] board = read(fileName);
 		print(board);
-		int i = 2;
-		int j = 2; 
+		int i = 5;
+		int j = 4; 
 		System.out.println("The tested cell value is: " + board[i][j]);
 		System.out.println("The tested cell number of live neighbors is: " + count(board, i, j));
 		System.out.println("The tested Cell next value is: " + cellValue(board, i, j));
