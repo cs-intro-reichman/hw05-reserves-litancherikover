@@ -18,7 +18,8 @@ public class GameOfLife {
 	}
 	
 	// Reads the data file and prints the initial board.
-	private static void test1(String fileName) {
+	private static void test1(String fileName) 
+	{
 		int[][] board = read(fileName);
 		print(board);
 	}
@@ -31,9 +32,9 @@ public class GameOfLife {
 		print(board);
 		int row = 10;
 		int col= 5; 
-		System.out.println("The tested cell value is: " + board[row][col]);
-		System.out.println("The tested cell number of live neighbors is: " + count(board, row, col));
-		System.out.println("The tested Cell next value is: " + cellValue(board, row, col));
+		System.out.println("The cell value is: " + board[row][col]);
+		System.out.println("The number of live neighbors is: " + count(board, row, col));
+		System.out.println("The next value: " + cellValue(board, row, col));
 	}
 		
 	// Reads the data file, plays the game for Ngen generations, 
