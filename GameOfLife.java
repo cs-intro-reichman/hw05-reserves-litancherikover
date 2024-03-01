@@ -29,11 +29,11 @@ public class GameOfLife {
 	{
 		int[][] board = read(fileName);
 		print(board);
-		int i = 5;
-		int j = 4; 
-		System.out.println("The tested cell value is: " + board[i][j]);
-		System.out.println("The tested cell number of live neighbors is: " + count(board, i, j));
-		System.out.println("The tested Cell next value is: " + cellValue(board, i, j));
+		int row = 10;
+		int col= 5; 
+		System.out.println("The tested cell value is: " + board[row][col]);
+		System.out.println("The tested cell number of live neighbors is: " + count(board, row, col));
+		System.out.println("The tested Cell next value is: " + cellValue(board, row, col));
 	}
 		
 	// Reads the data file, plays the game for Ngen generations, 
