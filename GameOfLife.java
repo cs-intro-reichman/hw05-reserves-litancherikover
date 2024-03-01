@@ -72,20 +72,21 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		for(int i = 1; i<board.length-1; i++)
+		int i = 1; 
+		while (in.hasNextLine()) 
 		{
-			String line = in.readLine();
-			for(int j = 1; j< board.length-1; j++)
-			{
-				if(j<=line.length())
+			String str = in.readLine(); // Read the next line from the file
+			if (str != null && !str.isEmpty()) 
+			{ // Check if the line is not null and not empty
+				for (int j = 0; j < Math.min(cols, str.length()); j++) 
 				{
-					char sign = line.charAt(j-1);
-					if(sign == 'x') 
-					{
-						board[i][j] = 1;
+					if (str.charAt(j) == 'x') { // Check for lowercase 'x'
+						board[i][j + 1] = 1; // Set board cell to 1, +1 for the frame
 					}
 				}
+				
 			}
+			i++; // Increment i to move to the next row of the board
 		}
 		return board;
 	}
