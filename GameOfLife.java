@@ -11,9 +11,9 @@ public class GameOfLife {
 		String fileName = args[0];
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
-		test1(fileName);
-		test2(fileName);
-		test3(fileName, 3);
+		//test1(fileName);
+		//test2(fileName);
+		//test3(fileName, 3);
 		play(fileName);
 	}
 	
@@ -72,15 +72,18 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		for(int i = 1; i <= rows; i++) 
+		for(int i = 1; i<board.length-1; i++)
 		{
 			String line = in.readLine();
-			for(int j = 1; j <= line.length() && j <= cols; j++) 
+			for(int j = 1; j< board.length-1; j++)
 			{
-				char sign = line.charAt(j - 1);
-				if(sign == 'x') 
+				if(j<=line.length())
 				{
-					board[i][j] = 1;
+					char sign = line.charAt(j-1);
+					if(sign == 'x') 
+					{
+						board[i][j] = 1;
+					}
 				}
 			}
 		}
@@ -119,25 +122,22 @@ public class GameOfLife {
 	{
 		//Gets the number of living Neighbors
 		int NumOfNeighbors = count(board, i, j);
-		// The cell is alive
-		if (board[i][j] == 1) 
+		// According to the rules
+		if(board[i][j] == 1 && NumOfNeighbors < 2) 
 		{
-			if (NumOfNeighbors < 2 || NumOfNeighbors > 3)
-			{
-				// next time this cell is dead
-				return 0;
-			}
-			// Cell will stay alive
+			return 0;
+		}
+		if(board[i][j] == 1 && (NumOfNeighbors == 2 || NumOfNeighbors ==3))
+		{
 			return 1;
 		}
-		//The cell is dead
-		else
+		if(board[i][j] == 1 && NumOfNeighbors > 3) 
 		{
-			if (NumOfNeighbors == 3)
-			{
-				//Cell will be alive
-				return 1;
-			}
+			return 0;
+		}
+		if(board[i][j] == 0 && NumOfNeighbors == 3) 
+		{
+			return 1;
 		}
 		return board[i][j];
 	}
@@ -181,6 +181,7 @@ public class GameOfLife {
 		{
 			Counter++;
 		}
+		//return the number of living friends
 		return Counter;
 	}
 	
