@@ -5,7 +5,8 @@
  *  The file format is described in the homework document.
  */
 
-public class GameOfLife {
+public class GameOfLife 
+{
 
 	public static void main(String[] args) {
 		String fileName = args[0];
@@ -54,7 +55,8 @@ public class GameOfLife {
 	public static void play(String fileName) 
 	{
 		int[][] board = read(fileName);
-		while (true) {
+		while (true) 
+		{
 			show(board);
 			board = evolve(board);
 		}
@@ -69,10 +71,11 @@ public class GameOfLife {
 	// This function assumes that the input file contains valid data, and does no input testing.
 	public static int[][] read(String fileName) 
 	{
-		In in = new In(fileName); // Constructs an In object for reading the input file
-		int rows = Integer.parseInt(in.readLine());
-		int cols = Integer.parseInt(in.readLine());
-		int[][] board = new int[rows + 2][cols + 2];
+		// Constructs an In object for reading the input file
+		In in = new In(fileName); 
+		int Row = Integer.parseInt(in.readLine());
+		int Column = Integer.parseInt(in.readLine());
+		int[][] board = new int[Row + 2][Column + 2];
 		for(int i = 1; i<board.length-1; i++)
 		{
 			String line = in.readLine();
@@ -123,12 +126,12 @@ public class GameOfLife {
 	{
 		//Gets the number of living Neighbors
 		int NumOfNeighbors = count(board, i, j);
-		// According to the rules
+		// According to the rules in the PDF
 		if(board[i][j] == 1 && NumOfNeighbors < 2) 
 		{
 			return 0;
 		}
-		if(board[i][j] == 1 && (NumOfNeighbors == 2 || NumOfNeighbors ==3))
+		if(board[i][j] == 1 && (NumOfNeighbors == 2 || NumOfNeighbors == 3))
 		{
 			return 1;
 		}
@@ -151,6 +154,7 @@ public class GameOfLife {
 	{
 		//Initialize the counter
 		int Counter = 0;
+		//Checking the whole 8 squeres around the given cells
 		if(board[i-1][j-1] == 1)
 		{
 			Counter++;
@@ -183,7 +187,7 @@ public class GameOfLife {
 		{
 			Counter++;
 		}
-		//return the number of living friends
+		//return the number of living neighbors
 		return Counter;
 	}
 	
