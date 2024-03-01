@@ -28,9 +28,12 @@ public class GameOfLife {
 	private static void test2(String fileName) 
 	{
 		int[][] board = read(fileName);
-
-		//// Write here code that tests that the count and cellValue functions
-		//// are working properly, and returning the correct values.
+		print(board);
+		int i = 2;
+		int j = 2; 
+		System.out.println("The tested cell value is: " + board[i][j]);
+		System.out.println("The tested cell number of live neighbors is: " + count(board, i, j));
+		System.out.println("The tested Cell next value is: " + cellValue(board, i, j));
 	}
 		
 	// Reads the data file, plays the game for Ngen generations, 
