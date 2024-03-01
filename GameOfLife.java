@@ -25,8 +25,10 @@ public class GameOfLife {
 		
 	// Reads the data file, and runs a test that checks 
 	// the count and cellValue functions.
-	private static void test2(String fileName) {
+	private static void test2(String fileName) 
+	{
 		int[][] board = read(fileName);
+
 		//// Write here code that tests that the count and cellValue functions
 		//// are working properly, and returning the correct values.
 	}
@@ -94,14 +96,56 @@ public class GameOfLife {
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	public static int count(int[][] board, int i, int j) {
-		//// Replace the following statement with your code.
-		return 0;
+		//Initialize the counter
+		int Counter = 0;
+		if(board[i-1][j-1] == 1)
+		{
+			Counter++;
+		}
+		else if(board[i-1][j] == 1)
+		{
+			Counter++;
+		}
+		else if(board[i-1][j+1] == 1)
+		{
+			Counter++;
+		}
+		else if(board[i][j+1] == 1)
+		{
+			Counter++;
+		}
+		else if(board[i][j-1] == 1)
+		{
+			Counter++;
+		}
+		else if(board[i+1][j-1] == 1)
+		{
+			Counter++;
+		}
+		else if(board[i+1][j] == 1)
+		{
+			Counter++;
+		}
+		else if(board[i+1][j+1] == 1)
+		{
+			Counter++;
+		}
+		return Counter;
 	}
 	
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
-    public static void print(int[][] arr) {
-		//// Write your code here.
+    public static void print(int[][] arr) 
+	{
+		for (int row = 1; row < arr.length - 1; row++)
+		{
+			for (int col = 1; col < arr[0].length - 1; col++)
+			{
+				System.out.printf("%3s", arr[row][col]);
+			}
+			System.out.println();
+		}
 	}
+
 		
     // Displays the board. Living and dead cells are represented by black and white squares, respectively.
     // We use a fixed-size canvas of 900 pixels by 900 pixels for displaying game boards of different sizes.
