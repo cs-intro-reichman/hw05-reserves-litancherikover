@@ -35,9 +35,11 @@ public class GameOfLife {
 		
 	// Reads the data file, plays the game for Ngen generations, 
 	// and prints the board at the beginning of each generation.
-	private static void test3(String fileName, int Ngen) {
+	private static void test3(String fileName, int Ngen) 
+	{
 		int[][] board = read(fileName);
-		for (int gen = 0; gen < Ngen; gen++) {
+		for (int gen = 0; gen < Ngen; gen++) 
+		{
 			System.out.println("Generation " + gen + ":");
 			print(board);
 			board = evolve(board);
@@ -45,7 +47,8 @@ public class GameOfLife {
 	}
 		
 	// Reads the data file and plays the game, for ever.
-	public static void play(String fileName) {
+	public static void play(String fileName) 
+	{
 		int[][] board = read(fileName);
 		while (true) {
 			show(board);
@@ -60,13 +63,25 @@ public class GameOfLife {
 	// and the rightmost columns. Thus the actual board is surrounded by a "frame" of zeros. You can think
 	// of this frame as representing the infinite number of dead cells that exist in every direction.
 	// This function assumes that the input file contains valid data, and does no input testing.
-	public static int[][] read(String fileName) {
+	public static int[][] read(String fileName) 
+	{
 		In in = new In(fileName); // Constructs an In object for reading the input file
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		//// Replace the following statement with your code.
-		return null;
+		for(int i = 1; i <= rows; i++) 
+		{
+			String line = in.readLine();
+			for(int j = 1; j <= line.length() && j <= cols; j++) 
+			{
+				char sign = line.charAt(j - 1);
+				if(sign == 'x') 
+				{
+					board[i][j] = 1;
+				}
+			}
+		}
+		return board;
 	}
 	
 	// Creates a new board from the given board, using the rules of the game.
