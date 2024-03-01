@@ -146,38 +146,39 @@ public class GameOfLife {
 	// (The cell itself is not counted).
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
-	public static int count(int[][] board, int i, int j) {
+	public static int count(int[][] board, int i, int j) 
+	{
 		//Initialize the counter
 		int Counter = 0;
 		if(board[i-1][j-1] == 1)
 		{
 			Counter++;
 		}
-		else if(board[i-1][j] == 1)
+		if(board[i-1][j] == 1)
 		{
 			Counter++;
 		}
-		else if(board[i-1][j+1] == 1)
+		if(board[i-1][j+1] == 1)
 		{
 			Counter++;
 		}
-		else if(board[i][j+1] == 1)
+		if(board[i][j+1] == 1)
 		{
 			Counter++;
 		}
-		else if(board[i][j-1] == 1)
+		if(board[i][j-1] == 1)
 		{
 			Counter++;
 		}
-		else if(board[i+1][j-1] == 1)
+		if(board[i+1][j-1] == 1)
 		{
 			Counter++;
 		}
-		else if(board[i+1][j] == 1)
+		if(board[i+1][j] == 1)
 		{
 			Counter++;
 		}
-		else if(board[i+1][j+1] == 1)
+		if(board[i+1][j+1] == 1)
 		{
 			Counter++;
 		}
